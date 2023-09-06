@@ -6,7 +6,7 @@
 #    By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/30 16:50:13 by jaehejun          #+#    #+#              #
-#    Updated: 2023/09/05 21:58:27 by jaehejun         ###   ########.fr        #
+#    Updated: 2023/09/06 15:47:29 by jaehejun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC		= CC
 
 CFLAGS	= -Wall -Wextra -Werror
 
-SRCS	= main.c ft_split.c
+SRCS	= main.c ft_split.c ft_atoi.c
 
 OBJS	= $(SRCS:.c=.o)
 
