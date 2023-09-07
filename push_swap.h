@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/06 21:54:28 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/07 21:35:42 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,23 @@ typedef struct s_stack
 }	t_stack;
 
 //static int	is_space(char c);
-int			ft_atoi(const char *str);
+long long	ft_atoi(const char *str);
 
 int			count_single(const char *s, char c);
 char		*single(const char *s, char c);
 void		free_all(char **str, int index);
 char		**ft_split(char const *s, char c);
+
+void	sa(t_stack *stack_a);
+void	sb(t_stack *stack_a);
+void	ss(t_stack *stack_a, t_stack *stack_b);
+
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_a, t_stack *stack_b);
+
+void	ra(t_stack *stack_a);
+void	rb(t_stack *stack_b);
+void	rr(t_stack *stack_a, t_stack *stack_b);
+
 
 #endif
