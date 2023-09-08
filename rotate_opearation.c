@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:22:57 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/07 21:55:17 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/08 14:29:23 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	rr(t_stack *stack_a, t_stack *stack_b)
 
 	if (stack_a->size < 2 || stack_b->size < 2)
 		return ;
-	printf("A in\n");
 	temp = stack_a->top;
 	stack_a->top = stack_a->top->next;
 	stack_a->bottom->next = temp;

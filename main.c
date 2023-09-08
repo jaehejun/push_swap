@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:51:56 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/07 22:58:34 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/08 15:50:29 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,28 +99,44 @@ int	main(int argc, char **argv)
 		}
 		free_all(arr, j);
 	}
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	printf("B size : %d\n", stack_b->size);
-	printf("B top : %d\n", stack_b->top->num);
-	printf("B bottom : %d\n", stack_b->bottom->num);
-	printf("B top->next : %d\n", stack_b->top->next->num);
-	printf("B bottom->next : %p\n", stack_b->bottom->next);
-	ra(stack_a);
+	//pb(stack_a, stack_b);
+	//pb(stack_a, stack_b);
+	//pb(stack_a, stack_b);
+	//rra(stack_a);
+	//rrb(stack_b);
+	rra(stack_a);
+	//pb(stack_a, stack_b);
+	//pb(stack_a, stack_b);
+	//pb(stack_a, stack_b);
+	//pb(stack_a, stack_b);
+	//pa(stack_a, stack_b);
+	//pa(stack_a, stack_b);
+	//pa(stack_a, stack_b);
+	//pa(stack_a, stack_b);
+	//pa(stack_a, stack_b);
+	
+	//printf("B size : %d\n", stack_b->size);
+	//printf("B top : %d\n", stack_b->top->num);
+	//printf("B bottom : %d\n", stack_b->bottom->num);
+	//printf("B top->next : %d\n", stack_b->top->next->num);
+	//printf("B bottom->next : %p\n", stack_b->bottom->next);
+	//ra(stack_a);
 
 
-	while (stack_a->top != NULL)
-	{
-		printf("%d\n", stack_a->top->num);
-		stack_a->top = stack_a->top->next;
-	}
-	printf("-----------------aaaaaa-----------------\n");
-	while (stack_b->top != NULL)
-	{
-		printf("%d\n", stack_b->top->num);
-		stack_b->top = stack_b->top->next;
-	}
-	printf("=================bbbbb=================\n");
+	//printf("A_CNT : %d\n", stack_a->size);
+	//while (stack_a->top != NULL)
+	//{
+	//	printf("%d\n", stack_a->top->num);
+	//	stack_a->top = stack_a->top->next;
+	//}
+	//printf("-----------------aaaaaa-----------------\n");
+	//printf("B_CNT : %d\n", stack_b->size);
+	//while (stack_b->top != NULL)
+	//{
+	//	printf("%d\n", stack_b->top->num);
+	//	stack_b->top = stack_b->top->next;
+	//}
+	//printf("=================bbbbb=================\n");
 
 
 
