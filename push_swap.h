@@ -6,14 +6,13 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 18:49:57 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/12 20:23:25 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <strings.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -72,5 +71,10 @@ void		check_number(char *arr);
 void		check_dup(t_all *all, char *arr);
 
 void		indexing(t_all *all);
+void		quick_sort(int *array, int low, int high);
+void		swap(int *a, int *b);
+void		numbering(int *indexing, t_all *all);
+
+
 
 #endif

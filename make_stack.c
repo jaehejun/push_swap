@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 16:25:41 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 19:21:42 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/12 20:16:45 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,16 @@ void	check_number(char *arr)
 
 void	check_dup(t_all *all, char *arr)
 {
-	t_node	*tmp;
+	t_node	*temp;
 
-	tmp = all->stack_a->top;
-	while (tmp != NULL)
+	temp = all->stack_a->top;
+	while (temp != NULL)
 	{
-		if (tmp->num == ft_atoi(arr))
+		if (temp->num == ft_atoi(arr))
 		{
 			write(2, "Error\n", 6);
 			exit(1);
 		}
-		tmp = tmp->next;
+		temp = temp->next;
 	}
 }
