@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 17:21:42 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:49:57 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,27 @@ char		*single(const char *s, char c);
 void		free_all(char **str, int index);
 char		**ft_split(char const *s, char c);
 
-void	sa(t_stack *stack_a);
-void	sb(t_stack *stack_a);
-void	ss(t_stack *stack_a, t_stack *stack_b);
+void		sa(t_stack *stack_a);
+void		sb(t_stack *stack_a);
+void		ss(t_stack *stack_a, t_stack *stack_b);
 
-void	pa(t_stack *stack_a, t_stack *stack_b);
-void	pb(t_stack *stack_a, t_stack *stack_b);
+void		pa(t_stack *stack_a, t_stack *stack_b);
+void		pb(t_stack *stack_a, t_stack *stack_b);
 
-void	ra(t_stack *stack_a);
-void	rb(t_stack *stack_b);
-void	rr(t_stack *stack_a, t_stack *stack_b);
+void		ra(t_stack *stack_a);
+void		rb(t_stack *stack_b);
+void		rr(t_stack *stack_a, t_stack *stack_b);
 
-void	rra(t_stack *stack_a);
-void	rrb(t_stack *stack_b);
-void	rrr(t_stack *stack_a, t_stack *stack_b);
+void		rra(t_stack *stack_a);
+void		rrb(t_stack *stack_b);
+void		rrr(t_stack *stack_a, t_stack *stack_b);
 
-void	init_stack(t_all *all);
-void	make_stack(int	argc, char**argv, t_all *all);
+void		init_stack(t_all *all);
+void		make_stack(int argc, char**argv, t_all *all);
+void		make_node(t_all *all, char *arr);
+void		check_number(char *arr);
+void		check_dup(t_all *all, char *arr);
+
+void		indexing(t_all *all);
 
 #endif
