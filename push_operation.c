@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:23:03 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/08 14:28:38 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/12 20:38:49 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 
 	if (stack_a->size == 0)
 		return ;
-
 	temp = stack_a->top;
 	stack_a->top = stack_a->top->next;
 	if (stack_b->top == NULL)

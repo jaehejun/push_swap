@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 20:23:25 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/12 22:00:45 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ typedef struct s_all
 	struct s_stack	*stack_b;
 }	t_all;
 
+void	print(t_all *all);
+
+
 int			is_number(char *str);
 long long	ft_atoi(char *str);
 
@@ -74,6 +77,9 @@ void		indexing(t_all *all);
 void		quick_sort(int *array, int low, int high);
 void		swap(int *a, int *b);
 void		numbering(int *indexing, t_all *all);
+
+void		sorting_stack(t_all *all);
+void		sorting_three(t_all *all);
 
 
 

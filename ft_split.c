@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 17:37:38 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/05 20:12:16 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/12 20:26:21 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,3 @@ char	**ft_split(char const *s, char c)
 	all[index] = NULL;
 	return (all);
 }
-

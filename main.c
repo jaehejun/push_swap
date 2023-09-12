@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:51:56 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 20:14:11 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/12 22:22:39 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,16 @@ int	main(int argc, char **argv)
 	init_stack(all);
 	make_stack(argc, argv, all);
 	indexing(all);
+	if (all->stack_a->size <= 3)
+		sorting_three(all);
+	else
+		sorting_stack(all);
+	print(all);
 
 
-
+}
+void	print(t_all *all)
+{
 	printf("A_CNT : %d\n", all->stack_a->size);
 	while (all->stack_a->top != NULL)
 	{
