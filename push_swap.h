@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/08 15:35:23 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:21:42 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+
+# define VALID 1
+# define INVALID 0
+# define NOT_NUM 2147483648
+# define OUT_OF_RANGE -2147483649
 
 typedef struct s_node
 {
@@ -31,8 +36,14 @@ typedef struct s_stack
 	t_node	*bottom;
 }	t_stack;
 
-//static int	is_space(char c);
-long long	ft_atoi(const char *str);
+typedef struct s_all
+{
+	struct s_stack	*stack_a;
+	struct s_stack	*stack_b;
+}	t_all;
+
+int			is_number(char *str);
+long long	ft_atoi(char *str);
 
 int			count_single(const char *s, char c);
 char		*single(const char *s, char c);
@@ -53,5 +64,8 @@ void	rr(t_stack *stack_a, t_stack *stack_b);
 void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
+
+void	init_stack(t_all *all);
+void	make_stack(int	argc, char**argv, t_all *all);
 
 #endif
