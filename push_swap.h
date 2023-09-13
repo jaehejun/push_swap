@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/13 16:53:55 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:47:52 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@
 
 typedef struct s_node
 {
-	int				num;
+	long long		num;
+	int				index;
+	int				count;
 	struct s_node	*next;
 }	t_node;
 
@@ -83,6 +85,7 @@ void		push_min(t_all *all, int minimum);
 void		sort_three(t_all *all);
 
 void		sort_stack(t_all *all);
+void		push_to_b(t_all *all);
 
 
 

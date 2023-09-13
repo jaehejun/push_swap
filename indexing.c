@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:44:22 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 20:24:07 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/13 23:04:43 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void	indexing(t_all *all)
 {
-	int		*indexing;
-	int		i;
+	long long	*index;
+	long long	i;
 	t_node	*temp;
 
 	i = 0;
 	temp = all->stack_a->top;
-	indexing = (int *)malloc(sizeof(int) * all->stack_a->size);
+	index = (long long *)malloc(sizeof(long long) * all->stack_a->size);
 	while (temp != NULL)
 	{
-		indexing[i++] = temp->num;
+		index[i++] = temp->num;
 		temp = temp->next;
 	}
-	quick_sort(indexing, 0, all->stack_a->size - 1);
-	numbering(indexing, all);
-	free(indexing);
+	quick_sort(index, 0, all->stack_a->size - 1);
+	numbering(index, all);
+	free(index);
 }
 
 void	numbering(int *indexing, t_all *all)
