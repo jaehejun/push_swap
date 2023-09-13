@@ -6,20 +6,20 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:48:33 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/13 16:36:15 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:39:25 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sorting_five(t_all *all)
+void	sort_five(t_all *all)
 {
 	int	minimum;
 	
 	minimum = -1;
 	while (all->stack_a->size > 3)
 		push_min(all, ++minimum);
-	sorting_three(all);
+	sort_three(all);
 	while (all->stack_b->size > 0)
 		pa(all->stack_a, all->stack_b);
 }
@@ -47,7 +47,7 @@ void	push_min(t_all *all, int minimum)
 	pb(all->stack_a, all->stack_b);
 }
 
-void	sorting_three(t_all *all)
+void	sort_three(t_all *all)
 {
 	t_node	*temp;
 	

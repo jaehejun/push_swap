@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:51:56 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/13 16:19:25 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:40:16 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int	main(int argc, char **argv)
 	make_stack(argc, argv, all);
 	indexing(all);
 	if (all->stack_a->size <= 5)
-		sorting_five(all);
+		sort_five(all);
 	//else
-	//	sorting_stack(all);
+	//	sort_stack(all);
 	print(all);
 
 
