@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/13 16:39:04 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:53:55 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,12 @@ void		quick_sort(int *array, int low, int high);
 void		swap(int *a, int *b);
 void		numbering(int *indexing, t_all *all);
 
-void		sort_stack(t_all *all);
 void		sort_five(t_all *all);
 void		push_min(t_all *all, int minimum);
 void		sort_three(t_all *all);
+
+void		sort_stack(t_all *all);
+
 
 
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   sorting_five.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:48:33 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/13 16:39:25 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:45:34 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,19 @@ void	sort_five(t_all *all)
 	int	minimum;
 	
 	minimum = -1;
-	while (all->stack_a->size > 3)
-		push_min(all, ++minimum);
-	sort_three(all);
-	while (all->stack_b->size > 0)
-		pa(all->stack_a, all->stack_b);
+	if (all->stack_a->size <= 2)
+	{
+		if (all->stack_a->top->num != 0)
+			sa(all->stack_a);
+	}
+	else
+	{
+		while (all->stack_a->size > 3)
+			push_min(all, ++minimum);
+		sort_three(all);
+		while (all->stack_b->size > 0)
+			pa(all->stack_a, all->stack_b);
+	}
 }
 
 void	push_min(t_all *all, int minimum)

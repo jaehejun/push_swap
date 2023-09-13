@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:42:02 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 20:26:11 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:25:17 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	is_number(char *str)
 {
+	if (*str == '\0')
+		return (INVALID);
 	while (*str != '\0')
 	{
 		if ('0' <= *str && *str <= '9')
