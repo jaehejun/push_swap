@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/14 21:19:58 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/14 22:55:08 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void		sort_three(t_all *all);
 void		sort_stack(t_all *all);
 void		push_to_b(t_all *all);
 long long	find_a(t_all *all, long long b_num);
+long long	find_a_with_biggest_b(t_all *all, long long b_num);
 int			is_sorted(t_all *all);
 
 
