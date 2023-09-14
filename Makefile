@@ -6,7 +6,7 @@
 #    By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/30 16:50:13 by jaehejun          #+#    #+#              #
-#    Updated: 2023/09/13 20:42:17 by jaehejun         ###   ########.fr        #
+#    Updated: 2023/09/14 20:35:08 by jaehejun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CFLAGS	= -Wall -Wextra -Werror -fsanitize=address -g
 
 SRCS	= main.c ft_split.c ft_atoi.c swap_operation.c push_operation.c\
 rotate_opearation.c reverse_rotate_operation.c make_stack.c indexing.c\
-sorting_five.c sorting_else.c
+sorting_six.c sorting_else.c
 
 OBJS	= $(SRCS:.c=.o)
 

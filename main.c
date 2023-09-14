@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:51:56 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/13 22:31:48 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/14 21:24:18 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,34 @@ int	main(int argc, char **argv)
 	init_stack(all);
 	make_stack(argc, argv, all);
 	indexing(all);
-	if (all->stack_a->size <= 5)
-		sort_five(all);
+	//print(all);
+	if (all->stack_a->size <= 6)
+		sort_six(all);
 	else
-		//sort_stack(all);
-	print(all);
+		sort_stack(all);
+	//print(all);
 
 
 }
 void	print(t_all *all)
 {
-	printf("A_CNT : %d\n", all->stack_a->size);
-	while (all->stack_a->top != NULL)
+	t_node	*temp_a;
+	t_node	*temp_b;
+
+	temp_a = all->stack_a->top;
+	temp_b = all->stack_b->top;
+	printf("A_CNT : %lld\n", all->stack_a->size);
+	while (temp_a != NULL)
 	{
-		printf("%d\n", all->stack_a->top->num);
-		all->stack_a->top = all->stack_a->top->next;
+		printf("%lld\n", temp_a->num);
+		temp_a = temp_a->next;
 	}
 	printf("-----------------aaaaaa-----------------\n");
-	printf("B_CNT : %d\n", all->stack_b->size);
-	while (all->stack_b->top != NULL)
+	printf("B_CNT : %lld\n", all->stack_b->size);
+	while (temp_b != NULL)
 	{
-		printf("%d\n", all->stack_b->top->num);
-		all->stack_b->top = all->stack_b->top->next;
+		printf("%lld\n", temp_b->num);
+		temp_b = temp_b->next;
 	}
 	printf("=================bbbbb=================\n");
 }

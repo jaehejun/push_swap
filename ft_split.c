@@ -6,16 +6,16 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 17:37:38 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 20:26:21 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:24:45 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	count_single(const char *s, char c)
+long long	count_single(const char *s, char c)
 {
-	int	count;
-	int	index;
+	long long	count;
+	int			index;
 
 	index = 0;
 	count = 0;
@@ -50,7 +50,7 @@ char	*single(const char *s, char c)
 	return (single);
 }
 
-void	free_all(char **str, int index)
+void	free_all(char **str, long long index)
 {
 	while (index-- > 0)
 		free(str[index]);
@@ -59,8 +59,8 @@ void	free_all(char **str, int index)
 
 char	**ft_split(char const *s, char c)
 {
-	int		index;
-	char	**all;
+	long long	index;
+	char		**all;
 
 	all = (char **)malloc(sizeof(char *) * (count_single(s, c) + 1));
 	if (all == NULL)

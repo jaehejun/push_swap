@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:44:22 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/13 23:04:43 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:27:12 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	indexing(t_all *all)
 	free(index);
 }
 
-void	numbering(int *indexing, t_all *all)
+void	numbering(long long *index, t_all *all)
 {
 	t_node	*temp;
 	int		i;
@@ -42,7 +42,7 @@ void	numbering(int *indexing, t_all *all)
 		i = 0;
 		while (i < all->stack_a->size)
 		{
-			if (temp->num == indexing[i])
+			if (temp->num == index[i])
 			{
 				temp->num = i;
 				temp = temp->next;
@@ -53,10 +53,10 @@ void	numbering(int *indexing, t_all *all)
 	}
 }
 
-void	quick_sort(int *array, int low, int high)
+void	quick_sort(long long *array, long long low, long long high)
 {
-	int	left;
-	int	pivot;
+	long long	left;
+	long long	pivot;
 
 	left = 0;
 	if (low >= high)
@@ -79,9 +79,9 @@ void	quick_sort(int *array, int low, int high)
 	quick_sort(array, low + 1, pivot);
 }
 
-void	swap(int *a, int *b)
+void	swap(long long *a, long long *b)
 {
-	int	temp;
+	long long	temp;
 
 	temp = *a;
 	*a = *b;

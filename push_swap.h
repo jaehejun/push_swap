@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/13 22:47:52 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/14 21:19:58 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,21 @@
 # define INVALID 0
 # define NOT_NUM 2147483648
 # define OUT_OF_RANGE -2147483649
+# define NUM_MAX 4294967295
 
 typedef struct s_node
 {
 	long long		num;
-	int				index;
-	int				count;
+	long long		index;
+	int				r_count;
 	struct s_node	*next;
 }	t_node;
 
 typedef struct s_stack
 {
-	int		size;
-	t_node	*top;
-	t_node	*bottom;
+	long long	size;
+	t_node		*top;
+	t_node		*bottom;
 }	t_stack;
 
 typedef struct s_all
@@ -49,9 +50,9 @@ void	print(t_all *all);
 int			is_number(char *str);
 long long	ft_atoi(char *str);
 
-int			count_single(const char *s, char c);
+long long	count_single(const char *s, char c);
 char		*single(const char *s, char c);
-void		free_all(char **str, int index);
+void		free_all(char **str, long long index);
 char		**ft_split(char const *s, char c);
 
 void		sa(t_stack *stack_a);
@@ -76,17 +77,18 @@ void		check_number(char *arr);
 void		check_dup(t_all *all, char *arr);
 
 void		indexing(t_all *all);
-void		quick_sort(int *array, int low, int high);
-void		swap(int *a, int *b);
-void		numbering(int *indexing, t_all *all);
+void		quick_sort(long long *array, long long low, long long high);
+void		swap(long long *a, long long *b);
+void		numbering(long long *index, t_all *all);
 
-void		sort_five(t_all *all);
+void		sort_six(t_all *all);
 void		push_min(t_all *all, int minimum);
 void		sort_three(t_all *all);
 
 void		sort_stack(t_all *all);
 void		push_to_b(t_all *all);
-
+long long	find_a(t_all *all, long long b_num);
+int			is_sorted(t_all *all);
 
 
 

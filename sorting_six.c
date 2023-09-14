@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting_five.c                                     :+:      :+:    :+:   */
+/*   sorting_six.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 20:48:33 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/13 17:45:34 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:42:36 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_five(t_all *all)
+void	sort_six(t_all *all)
 {
 	int	minimum;
-	
+
 	minimum = -1;
 	if (all->stack_a->size <= 2)
 	{
