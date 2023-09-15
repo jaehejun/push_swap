@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:52:32 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/14 23:34:24 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/15 20:41:56 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,79 @@ void	sort_stack(t_all *all)
 		while (temp_b != NULL)
 		{
 			a_mininum = find_a(all, temp_b->num);
-			if (total_count > a_mininum + b_index)
+			if (b_index > all->stack_b->size / 2)
+				b_index = (all->stack_b->size - b_index) * -1;
+			if (total_count > change_to_abs(a_mininum) + change_to_abs(b_index))
 			{
-				total_count = a_mininum + b_index;
+				total_count = change_to_abs(a_mininum) + change_to_abs(b_index);
 				b_result_index = b_index;
 				a_result_index = a_mininum;
 			}
 			temp_b = temp_b->next;
 			b_index++;
 		}
-		while (b_result_index-- > 0)
-			rb(all->stack_b);
-		while (a_result_index-- > 0)
-			ra(all->stack_a);
+		printf("A_RESULT : %lld\n", a_result_index);
+		printf("B_RESULT : %lld\n", b_result_index);
+
+		if (a_result_index >= 0 && b_result_index >= 0)
+		{
+			if (a_result_index > b_result_index)
+			{
+				while (b_result_index-- > 0)
+				{
+					rr(all->stack_a, all->stack_b);
+					a_result_index--;
+				}
+				while (a_result_index-- > 0)
+					ra(all->stack_a);
+			}
+			else
+			{
+				while (a_result_index-- > 0)
+				{
+					rr(all->stack_a, all->stack_b);
+					b_result_index--;
+				}
+				while (b_result_index-- > 0)
+					rb(all->stack_b);
+			}
+		}
+		else if (a_result_index < 0 && b_result_index < 0)
+		{
+			if (a_result_index > b_result_index)
+			{
+				while (a_result_index++ < 0)
+				{
+					rrr(all->stack_a, all->stack_b);
+					b_result_index++;
+				}
+				while (b_result_index++ < 0)
+					rrb(all->stack_b);
+			}
+		}
+		else
+		{
+			if (a_result_index >= 0)
+				while (a_result_index-- > 0)
+					ra(all->stack_a);
+			else
+				while (a_result_index++ < 0)
+					rra(all->stack_a);
+			if (b_result_index >= 0)
+				while (b_result_index-- > 0)
+					rb(all->stack_b);
+			else
+				while (b_result_index++ < 0)
+					rrb(all->stack_b);
+		}
+
+		
+		//while (b_result_index-- > 0)
+		//	rb(all->stack_b);
+		//while (a_result_index-- > 0)
+		//	ra(all->stack_a);
 		pa(all->stack_a, all->stack_b);
+		print(all);
 		
 		//// ra -> rra
 		//if (b_result_index > all->stack_b->size / 2)
@@ -151,6 +210,7 @@ long long	find_a(t_all *all, long long b_num)
 	}
 	if (min == NUM_MAX && is_sorted(all) == 0)
 		result_index = find_a_with_biggest_b(all, b_num);
+	result_index = reverse_index(all, result_index);
 	return (result_index);
 }
 
@@ -193,4 +253,18 @@ int	is_sorted(t_all *all)
 			return (0);
 	}
 	return (1);
+}
+
+long long	reverse_index(t_all *all, long long result_index)
+{
+	if (result_index > all->stack_a->size / 2)
+		result_index = (all->stack_a->size - result_index) * -1;
+	return (result_index);
+}
+
+long long	change_to_abs(long long num)
+{
+	if (num < 0)
+		return (num * -1);
+	return (num);
 }
