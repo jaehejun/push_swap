@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:23:05 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 20:40:12 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/16 20:39:54 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	sa(t_stack *stack_a)
 
 	if (stack_a->size < 2)
 		return ;
-	temp = (t_node *)malloc(sizeof(t_node));
 	temp = stack_a->top;
 	stack_a->top = stack_a->top->next;
 	temp->next = stack_a->top->next;

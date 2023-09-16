@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaehee <jaehee@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 17:42:28 by jaehee           ###   ########.fr       */
+/*   Updated: 2023/09/16 20:19:12 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void		rrr(t_stack *stack_a, t_stack *stack_b);
 
 void		init_stack(t_all *all);
 void		make_stack(int argc, char**argv, t_all *all);
+void		zero_to_top(t_all *all);
 void		make_node(t_all *all, char *arr);
 void		check_number(char *arr);
 void		check_dup(t_all *all, char *arr);
@@ -88,7 +89,6 @@ void		sort_three(t_all *all);
 void		sort_stack(t_all *all);
 void		push_to_b(t_all *all);
 long long	find_a(t_all *all, long long b_num);
-long long	find_a_with_biggest_b(t_all *all, long long b_num);
 int			is_sorted(t_all *all);
 long long	greedy_index(long long size, long long result_index);
 long long	ft_abs(long long num);
