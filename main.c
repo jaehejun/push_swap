@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaehee <jaehee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:51:56 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 14:13:33 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:57:12 by jaehee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 		sort_six(all);
 	else
 		sort_stack(all);
+	while (all->stack_a->top->num != 0)
+	ra(all->stack_a);
 	print(all);
 
 

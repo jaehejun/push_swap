@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_else.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaehee <jaehee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:52:32 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 14:24:53 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:58:24 by jaehee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,22 @@ void	sort_stack(t_all *all)
 		total_count = NUM_MAX;
 		while (temp_b != NULL)
 		{
+			// printf("B_NUM: %lld\n", temp_b->num);
 			greedy_a = find_a(all, temp_b->num);
-			if (total_count > ft_abs(greedy_a) + ft_abs(greedy_index(all, temp_b->index)))
+			// printf("-------greedy_a : %lld\n", greedy_a);
+			if (total_count > ft_abs(greedy_a) + ft_abs(greedy_index(all->stack_b->size, temp_b->index)))
 			{
-				total_count = ft_abs(greedy_a) + ft_abs(greedy_index(all, temp_b->index));
-				b_count = greedy_index(all, temp_b->index);
+				// printf("B_INDEX: %lld\n", temp_b->index);
+				// printf("GREEDY_B_INDEX: %lld\n", greedy_index(all->stack_b->size, temp_b->index));
+				total_count = ft_abs(greedy_a) + ft_abs(greedy_index(all->stack_b->size, temp_b->index));
+				// printf("----------------total_cnt: %lld\n", total_count);
+				b_count = greedy_index(all->stack_b->size, temp_b->index);
+				// printf("B_RESULT : %lld\n", b_count);
 				a_count = greedy_a;
+				// printf("A_RESULT : %lld\n", a_count);
 			}
 			temp_b = temp_b->next;
 		}
-		printf("A_RESULT : %lld\n", a_count);
-		printf("B_RESULT : %lld\n", b_count);
 
 		if (a_count >= 0 && b_count >= 0)
 		{
@@ -97,8 +102,6 @@ void	sort_stack(t_all *all)
 		pa(all->stack_a, all->stack_b);
 		print(all);
 	}
-	while (all->stack_a->top->num != 0)
-		ra(all->stack_a);
 }
 	
 
@@ -140,18 +143,26 @@ long long	find_a(t_all *all, long long b_num)
 	while (temp_a != NULL)
 	{
 		diff = temp_a->num - b_num;
+		// printf("diff : %lld\n", diff);
 		if (min > ft_abs(diff))
 		{
-			min = diff;
-			result_index = temp_a->index;
+			min = ft_abs(diff);
+			// printf("a_min : %lld\n", min);
+			if (diff < 0)
+				result_index = temp_a->index + 1;
+			else
+				result_index = temp_a->index;
+			// printf("a_index: %lld\n", result_index);
 		}
 		temp_a = temp_a->next;
 	}
-	if (min == NUM_MAX && is_sorted(all) == 0)
-		result_index = find_a_with_biggest_b(all, b_num);
-	result_index = greedy_index(all, result_index);
+	// if (min == NUM_MAX && is_sorted(all) == 0)
+	// 	result_index = find_a_with_biggest_b(all, b_num);
+	result_index = greedy_index(all->stack_a->size, result_index);
+	// printf("RESULT : %lld\n", result_index);
 	return (result_index);
 }
+
 
 long long	find_a_with_biggest_b(t_all *all, long long b_num)
 {
@@ -191,10 +202,13 @@ int	is_sorted(t_all *all)
 	return (1);
 }
 
-long long	greedy_index(t_all *all, long long result_index)
+long long	greedy_index(long long size, long long result_index)
 {
-	if (result_index > all->stack_a->size / 2)
-		result_index = (all->stack_a->size - result_index) * -1;
+	// printf("BEFORE MAKE GREEDY : %lld\n", result_index);
+	// printf("SIZE/2 : %lld\n", size / 2);
+	if (result_index > size / 2)
+		result_index = (size - result_index) * -1;
+	// printf("AFTER MAKE GREEDY : %lld\n", result_index);
 	return (result_index);
 }
 

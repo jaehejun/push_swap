@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaehee <jaehee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 14:03:09 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:42:28 by jaehee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void		push_to_b(t_all *all);
 long long	find_a(t_all *all, long long b_num);
 long long	find_a_with_biggest_b(t_all *all, long long b_num);
 int			is_sorted(t_all *all);
-long long	greedy_index(t_all *all, long long result_index);
+long long	greedy_index(long long size, long long result_index);
 long long	ft_abs(long long num);
 void		put_index(t_all *all);
 
