@@ -6,49 +6,49 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:23:03 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 20:38:49 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/16 22:16:23 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_stack *stack_a, t_stack *stack_b)
+void	pa(t_deque *deque_a, t_deque *deque_b)
 {
 	t_node	*temp;
 
-	if (stack_b->size == 0)
+	if (deque_b->size == 0)
 		return ;
-	temp = stack_b->top;
-	stack_b->top = stack_b->top->next;
-	if (stack_b->size == 1)
-		stack_b->bottom = NULL;
-	temp->next = stack_a->top;
-	stack_a->top = temp;
-	stack_a->size++;
-	stack_b->size--;
-	printf("pa\n");
+	temp = deque_b->top;
+	deque_b->top = deque_b->top->next;
+	if (deque_b->size == 1)
+		deque_b->bottom = NULL;
+	temp->next = deque_a->top;
+	deque_a->top = temp;
+	deque_a->size++;
+	deque_b->size--;
+	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack *stack_a, t_stack *stack_b)
+void	pb(t_deque *deque_a, t_deque *deque_b)
 {
 	t_node	*temp;
 
-	if (stack_a->size == 0)
+	if (deque_a->size == 0)
 		return ;
-	temp = stack_a->top;
-	stack_a->top = stack_a->top->next;
-	if (stack_b->top == NULL)
+	temp = deque_a->top;
+	deque_a->top = deque_a->top->next;
+	if (deque_b->top == NULL)
 	{
 		temp->next = NULL;
-		stack_b->top = temp;
-		stack_b->bottom = temp;
+		deque_b->top = temp;
+		deque_b->bottom = temp;
 	}
 	else
 	{
-		temp->next = stack_b->top;
-		stack_b->top = temp;
+		temp->next = deque_b->top;
+		deque_b->top = temp;
 	}
-	stack_a->size--;
-	stack_b->size++;
-	printf("pb\n");
+	deque_a->size--;
+	deque_b->size++;
+	write(1, "pb\n", 3);
 }

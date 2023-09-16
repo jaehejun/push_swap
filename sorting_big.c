@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting_else.c                                     :+:      :+:    :+:   */
+/*   sorting_big.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:52:32 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 20:21:10 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/16 22:26:54 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_stack(t_all *all)
+void	sort_big(t_all *all)
 {
 	long long	total_count;
 	long long	greedy_a;
@@ -21,24 +21,19 @@ void	sort_stack(t_all *all)
 	t_node		*temp_b;
 
 	push_to_b(all);
-	//print(all);
-	while (all->stack_b->size > 0)
+	while (all->deque_b->size > 0)
 	{
-		temp_b = all->stack_b->top;
+		temp_b = all->deque_b->top;
 		put_index(all);
 		total_count = NUM_MAX;
 		while (temp_b != NULL)
 		{
 			greedy_a = find_a(all, temp_b->num);
-			if (total_count > ft_abs(greedy_a) + ft_abs(greedy_index(all->stack_b->size, temp_b->index)))
+			if (total_count > ft_abs(greedy_a) + ft_abs(greedy_index(all->deque_b->size, temp_b->index)))
 			{
-				// printf("B_INDEX: %lld\n", temp_b->index);
-				total_count = ft_abs(greedy_a) + ft_abs(greedy_index(all->stack_b->size, temp_b->index));
-				// printf("----------------total_cnt: %lld\n", total_count);
-				b_count = greedy_index(all->stack_b->size, temp_b->index);
+				total_count = ft_abs(greedy_a) + ft_abs(greedy_index(all->deque_b->size, temp_b->index));
+				b_count = greedy_index(all->deque_b->size, temp_b->index);
 				a_count = greedy_a;
-				//printf("A_RESULT : %lld\n", a_count);
-				//printf("B_RESULT : %lld\n", b_count);
 			}
 			temp_b = temp_b->next;
 		}
@@ -49,21 +44,21 @@ void	sort_stack(t_all *all)
 			{
 				while (b_count-- > 0)
 				{
-					rr(all->stack_a, all->stack_b);
+					rr(all->deque_a, all->deque_b);
 					a_count--;
 				}
 				while (a_count-- > 0)
-					ra(all->stack_a);
+					ra(all->deque_a);
 			}
 			else
 			{
 				while (a_count-- > 0)
 				{
-					rr(all->stack_a, all->stack_b);
+					rr(all->deque_a, all->deque_b);
 					b_count--;
 				}
 				while (b_count-- > 0)
-					rb(all->stack_b);
+					rb(all->deque_b);
 			}
 		}
 		else if (a_count < 0 && b_count < 0)
@@ -72,43 +67,43 @@ void	sort_stack(t_all *all)
 			{
 				while (a_count++ < 0)
 				{
-					rrr(all->stack_a, all->stack_b);
+					rrr(all->deque_a, all->deque_b);
 					b_count++;
 				}
 				while (b_count++ < 0)
-					rrb(all->stack_b);
+					rrb(all->deque_b);
 			}
 			else
 			{
 				while (b_count++ < 0)
 				{
-					rrr(all->stack_a, all->stack_b);
+					rrr(all->deque_a, all->deque_b);
 					a_count++;
 				}
 				while (a_count++ < 0)
-					rra(all->stack_a);
+					rra(all->deque_a);
 			}
 		}
 		else
 		{
 			if (a_count >= 0)
 				while (a_count-- > 0)
-					ra(all->stack_a);
+					ra(all->deque_a);
 			else
 				while (a_count++ < 0)
-					rra(all->stack_a);
+					rra(all->deque_a);
 			if (b_count >= 0)
 				while (b_count-- > 0)
-					rb(all->stack_b);
+					rb(all->deque_b);
 			else
 				while (b_count++ < 0)
-					rrb(all->stack_b);
+					rrb(all->deque_b);
 		}
 
 		
-		pa(all->stack_a, all->stack_b);
-		//print(all);
+		pa(all->deque_a, all->deque_b);
 	}
+	zero_to_top(all);
 }
 	
 
@@ -118,25 +113,24 @@ void	push_to_b(t_all *all)
 	long long	pivot_big;
 	long long	count;
 
-	pivot_small = all->stack_a->size / 3;
+	pivot_small = all->deque_a->size / 3;
 	pivot_big = pivot_small * 2;
-	count = all->stack_a->size;
+	count = all->deque_a->size;
 	while (count-- > 0)
 	{
-		if (all->stack_a->top->num < pivot_big)
+		if (all->deque_a->top->num < pivot_big)
 		{
-			pb(all->stack_a, all->stack_b);
-			if (all->stack_b->top->num < pivot_small)
-				rb(all->stack_b);
+			pb(all->deque_a, all->deque_b);
+			if (all->deque_b->top->num < pivot_small)
+				rb(all->deque_b);
 		}
 		else
-			ra(all->stack_a);
+			ra(all->deque_a);
 	}
-	while (all->stack_a->size > 3)
-		pb(all->stack_a, all->stack_b);
+	while (all->deque_a->size > 3)
+		pb(all->deque_a, all->deque_b);
 	sort_three(all);
 }
-
 long long	find_a(t_all *all, long long b_num)
 {
 	long long	result_index;
@@ -146,7 +140,7 @@ long long	find_a(t_all *all, long long b_num)
 
 	result_index = 0;
 	min = NUM_MAX;
-	temp_a = all->stack_a->top;
+	temp_a = all->deque_a->top;
 	while (temp_a != NULL)
 	{
 		diff = temp_a->num - b_num;
@@ -160,7 +154,7 @@ long long	find_a(t_all *all, long long b_num)
 		}
 		temp_a = temp_a->next;
 	}
-	result_index = greedy_index(all->stack_a->size, result_index);
+	result_index = greedy_index(all->deque_a->size, result_index);
 	return (result_index);
 }
 
@@ -168,7 +162,7 @@ int	is_sorted(t_all *all)
 {
 	t_node	*temp;
 
-	temp = all->stack_a->top;
+	temp = all->deque_a->top;
 	while (temp->next != NULL)
 	{
 		if (temp->num < temp->next->num)
@@ -199,8 +193,8 @@ void	put_index(t_all *all)
 	t_node		*temp_b;
 	long long	index;
 
-	temp_a = all->stack_a->top;
-	temp_b = all->stack_b->top;
+	temp_a = all->deque_a->top;
+	temp_b = all->deque_b->top;
 	index = 0;
 	while (temp_a != NULL)
 	{
@@ -220,18 +214,18 @@ void	zero_to_top(t_all *all)
 	t_node		*temp;
 	long long	index;
 
-	temp = all->stack_a->top;
+	temp = all->deque_a->top;
 	index = 0;
 	while (temp->num != 0)
 	{
 		temp = temp->next;
 		index++;
 	}
-	index = greedy_index(all->stack_a->size, index);
+	index = greedy_index(all->deque_a->size, index);
 	if (index > 0)
 		while (index-- > 0)
-			ra(all->stack_a);
+			ra(all->deque_a);
 	else
 		while (index++ < 0)
-			rra(all->stack_a);
+			rra(all->deque_a);
 }

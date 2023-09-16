@@ -6,22 +6,22 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 16:25:41 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 20:16:45 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/16 22:16:15 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stack(t_all *all)
+void	init_deque(t_all *all)
 {
-	all->stack_a = (t_stack *)malloc(sizeof(t_stack));
-	all->stack_a->size = 0;
-	all->stack_a->top = NULL;
-	all->stack_a->bottom = NULL;
-	all->stack_b = (t_stack *)malloc(sizeof(t_stack));
-	all->stack_b->size = 0;
-	all->stack_b->top = NULL;
-	all->stack_b->bottom = NULL;
+	all->deque_a = (t_deque *)malloc(sizeof(t_deque));
+	all->deque_a->size = 0;
+	all->deque_a->top = NULL;
+	all->deque_a->bottom = NULL;
+	all->deque_b = (t_deque *)malloc(sizeof(t_deque));
+	all->deque_b->size = 0;
+	all->deque_b->top = NULL;
+	all->deque_b->bottom = NULL;
 }
 
 void	make_node(t_all *all, char *arr)
@@ -33,15 +33,15 @@ void	make_node(t_all *all, char *arr)
 	node = (t_node *)malloc(sizeof(t_node));
 	node->num = ft_atoi(arr);
 	node->next = NULL;
-	if (all->stack_a->top == NULL)
-		all->stack_a->top = node;
+	if (all->deque_a->top == NULL)
+		all->deque_a->top = node;
 	else
-		all->stack_a->bottom->next = node;
-	all->stack_a->bottom = node;
-	all->stack_a->size++;
+		all->deque_a->bottom->next = node;
+	all->deque_a->bottom = node;
+	all->deque_a->size++;
 }
 
-void	make_stack(int argc, char**argv, t_all *all)
+void	make_deque(int argc, char**argv, t_all *all)
 {
 	char	**arr;
 	int		i;
@@ -78,7 +78,7 @@ void	check_dup(t_all *all, char *arr)
 {
 	t_node	*temp;
 
-	temp = all->stack_a->top;
+	temp = all->deque_a->top;
 	while (temp != NULL)
 	{
 		if (temp->num == ft_atoi(arr))

@@ -6,71 +6,70 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:22:53 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/08 15:48:49 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/16 22:16:38 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// node에 *prev를 추가하면 더 쉽게 구현할 수 있음.
 #include "push_swap.h"
 
-void	rra(t_stack *stack_a)
+void	rra(t_deque *deque_a)
 {
 	t_node	*last;
 	int		i;
 
 	i = 0;
-	if (stack_a->size < 2)
+	if (deque_a->size < 2)
 		return ;
-	last = stack_a->bottom;
-	last->next = stack_a->top;
-	stack_a->top = last;
-	while (i++ < stack_a->size - 1)
+	last = deque_a->bottom;
+	last->next = deque_a->top;
+	deque_a->top = last;
+	while (i++ < deque_a->size - 1)
 		last = last->next;
-	stack_a->bottom = last;
+	deque_a->bottom = last;
 	last->next = NULL;
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *stack_b)
+void	rrb(t_deque *deque_b)
 {
 	t_node	*last;
 	int		i;
 
 	i = 0;
-	if (stack_b->size < 2)
+	if (deque_b->size < 2)
 		return ;
-	last = stack_b->bottom;
-	last->next = stack_b->top;
-	stack_b->top = last;
-	while (i++ < stack_b->size - 1)
+	last = deque_b->bottom;
+	last->next = deque_b->top;
+	deque_b->top = last;
+	while (i++ < deque_b->size - 1)
 		last = last->next;
-	stack_b->bottom = last;
+	deque_b->bottom = last;
 	last->next = NULL;
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *stack_a, t_stack *stack_b)
+void	rrr(t_deque *deque_a, t_deque *deque_b)
 {
 	t_node	*last;
 	int		i;
 
 	i = 0;
-	if (stack_a->size < 2 || stack_b->size < 2)
+	if (deque_a->size < 2 || deque_b->size < 2)
 		return ;
-	last = stack_a->bottom;
-	last->next = stack_a->top;
-	stack_a->top = last;
-	while (i++ < stack_a->size - 1)
+	last = deque_a->bottom;
+	last->next = deque_a->top;
+	deque_a->top = last;
+	while (i++ < deque_a->size - 1)
 		last = last->next;
-	stack_a->bottom = last;
+	deque_a->bottom = last;
 	last->next = NULL;
 	i = 0;
-	last = stack_b->bottom;
-	last->next = stack_b->top;
-	stack_b->top = last;
-	while (i++ < stack_b->size - 1)
+	last = deque_b->bottom;
+	last->next = deque_b->top;
+	deque_b->top = last;
+	while (i++ < deque_b->size - 1)
 		last = last->next;
-	stack_b->bottom = last;
+	deque_b->bottom = last;
 	last->next = NULL;
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 }

@@ -6,55 +6,55 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:22:57 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/12 21:46:18 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/16 22:16:42 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack *stack_a)
+void	ra(t_deque *deque_a)
 {
 	t_node	*temp;
 
-	if (stack_a->size < 2)
+	if (deque_a->size < 2)
 		return ;
-	temp = stack_a->top;
-	stack_a->top = stack_a->top->next;
-	stack_a->bottom->next = temp;
-	stack_a->bottom = temp;
+	temp = deque_a->top;
+	deque_a->top = deque_a->top->next;
+	deque_a->bottom->next = temp;
+	deque_a->bottom = temp;
 	temp->next = NULL;
-	printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack *stack_b)
+void	rb(t_deque *deque_b)
 {
 	t_node	*temp;
 
-	if (stack_b->size < 2)
+	if (deque_b->size < 2)
 		return ;
-	temp = stack_b->top;
-	stack_b->top = stack_b->top->next;
-	stack_b->bottom->next = temp;
-	stack_b->bottom = temp;
+	temp = deque_b->top;
+	deque_b->top = deque_b->top->next;
+	deque_b->bottom->next = temp;
+	deque_b->bottom = temp;
 	temp->next = NULL;
-	printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
-void	rr(t_stack *stack_a, t_stack *stack_b)
+void	rr(t_deque *deque_a, t_deque *deque_b)
 {
 	t_node	*temp;
 
-	if (stack_a->size < 2 || stack_b->size < 2)
+	if (deque_a->size < 2 || deque_b->size < 2)
 		return ;
-	temp = stack_a->top;
-	stack_a->top = stack_a->top->next;
-	stack_a->bottom->next = temp;
-	stack_a->bottom = temp;
+	temp = deque_a->top;
+	deque_a->top = deque_a->top->next;
+	deque_a->bottom->next = temp;
+	deque_a->bottom = temp;
 	temp->next = NULL;
-	temp = stack_b->top;
-	stack_b->top = stack_b->top->next;
-	stack_b->bottom->next = temp;
-	stack_b->bottom = temp;
+	temp = deque_b->top;
+	deque_b->top = deque_b->top->next;
+	deque_b->bottom->next = temp;
+	deque_b->bottom = temp;
 	temp->next = NULL;
-	printf("rr\n");
+	write(1, "rr\n", 3);
 }

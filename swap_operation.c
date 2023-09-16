@@ -6,51 +6,51 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:23:05 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 20:39:54 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/16 22:16:56 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *stack_a)
+void	sa(t_deque *deque_a)
 {
 	t_node	*temp;
 
-	if (stack_a->size < 2)
+	if (deque_a->size < 2)
 		return ;
-	temp = stack_a->top;
-	stack_a->top = stack_a->top->next;
-	temp->next = stack_a->top->next;
-	stack_a->top->next = temp;
-	printf("sa\n");
+	temp = deque_a->top;
+	deque_a->top = deque_a->top->next;
+	temp->next = deque_a->top->next;
+	deque_a->top->next = temp;
+	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *stack_b)
+void	sb(t_deque *deque_b)
 {
 	t_node	*temp;
 
-	if (stack_b->size < 2)
+	if (deque_b->size < 2)
 		return ;
-	temp = stack_b->top;
-	stack_b->top = stack_b->top->next;
-	temp->next = stack_b->top->next;
-	stack_b->top->next = temp;
-	printf("sb\n");
+	temp = deque_b->top;
+	deque_b->top = deque_b->top->next;
+	temp->next = deque_b->top->next;
+	deque_b->top->next = temp;
+	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
+void	ss(t_deque *deque_a, t_deque *deque_b)
 {
 	t_node	*temp;
 
-	if (stack_a->size < 2 || stack_b->size < 2)
+	if (deque_a->size < 2 || deque_b->size < 2)
 		return ;
-	temp = stack_a->top;
-	stack_a->top = stack_a->top->next;
-	temp->next = stack_a->top->next;
-	stack_a->top->next = temp;
-	temp = stack_b->top;
-	stack_b->top = stack_b->top->next;
-	temp->next = stack_b->top->next;
-	stack_b->top->next = temp;
-	printf("ss\n");
+	temp = deque_a->top;
+	deque_a->top = deque_a->top->next;
+	temp->next = deque_a->top->next;
+	deque_a->top->next = temp;
+	temp = deque_b->top;
+	deque_b->top = deque_b->top->next;
+	temp->next = deque_b->top->next;
+	deque_b->top->next = temp;
+	write(1, "ss\n", 3);
 }
