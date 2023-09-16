@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:52:32 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/15 20:41:56 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/16 14:24:53 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,146 +14,88 @@
 
 void	sort_stack(t_all *all)
 {
-	long long	b_index;
 	long long	total_count;
-	long long	a_mininum;
-	long long	a_result_index;
-	long long	b_result_index;
+	long long	greedy_a;
+	long long	a_count;
+	long long	b_count;
 	t_node		*temp_b;
 
 	push_to_b(all);
+	print(all);
 	while (all->stack_b->size > 0)
 	{
 		temp_b = all->stack_b->top;
-		b_index = 0;
+		put_index(all);
 		total_count = NUM_MAX;
 		while (temp_b != NULL)
 		{
-			a_mininum = find_a(all, temp_b->num);
-			if (b_index > all->stack_b->size / 2)
-				b_index = (all->stack_b->size - b_index) * -1;
-			if (total_count > change_to_abs(a_mininum) + change_to_abs(b_index))
+			greedy_a = find_a(all, temp_b->num);
+			if (total_count > ft_abs(greedy_a) + ft_abs(greedy_index(all, temp_b->index)))
 			{
-				total_count = change_to_abs(a_mininum) + change_to_abs(b_index);
-				b_result_index = b_index;
-				a_result_index = a_mininum;
+				total_count = ft_abs(greedy_a) + ft_abs(greedy_index(all, temp_b->index));
+				b_count = greedy_index(all, temp_b->index);
+				a_count = greedy_a;
 			}
 			temp_b = temp_b->next;
-			b_index++;
 		}
-		printf("A_RESULT : %lld\n", a_result_index);
-		printf("B_RESULT : %lld\n", b_result_index);
+		printf("A_RESULT : %lld\n", a_count);
+		printf("B_RESULT : %lld\n", b_count);
 
-		if (a_result_index >= 0 && b_result_index >= 0)
+		if (a_count >= 0 && b_count >= 0)
 		{
-			if (a_result_index > b_result_index)
+			if (a_count > b_count)
 			{
-				while (b_result_index-- > 0)
+				while (b_count-- > 0)
 				{
 					rr(all->stack_a, all->stack_b);
-					a_result_index--;
+					a_count--;
 				}
-				while (a_result_index-- > 0)
+				while (a_count-- > 0)
 					ra(all->stack_a);
 			}
 			else
 			{
-				while (a_result_index-- > 0)
+				while (a_count-- > 0)
 				{
 					rr(all->stack_a, all->stack_b);
-					b_result_index--;
+					b_count--;
 				}
-				while (b_result_index-- > 0)
+				while (b_count-- > 0)
 					rb(all->stack_b);
 			}
 		}
-		else if (a_result_index < 0 && b_result_index < 0)
+		else if (a_count < 0 && b_count < 0)
 		{
-			if (a_result_index > b_result_index)
+			if (a_count > b_count)
 			{
-				while (a_result_index++ < 0)
+				while (a_count++ < 0)
 				{
 					rrr(all->stack_a, all->stack_b);
-					b_result_index++;
+					b_count++;
 				}
-				while (b_result_index++ < 0)
+				while (b_count++ < 0)
 					rrb(all->stack_b);
 			}
 		}
 		else
 		{
-			if (a_result_index >= 0)
-				while (a_result_index-- > 0)
+			if (a_count >= 0)
+				while (a_count-- > 0)
 					ra(all->stack_a);
 			else
-				while (a_result_index++ < 0)
+				while (a_count++ < 0)
 					rra(all->stack_a);
-			if (b_result_index >= 0)
-				while (b_result_index-- > 0)
+			if (b_count >= 0)
+				while (b_count-- > 0)
 					rb(all->stack_b);
 			else
-				while (b_result_index++ < 0)
+				while (b_count++ < 0)
 					rrb(all->stack_b);
 		}
 
 		
-		//while (b_result_index-- > 0)
-		//	rb(all->stack_b);
-		//while (a_result_index-- > 0)
-		//	ra(all->stack_a);
 		pa(all->stack_a, all->stack_b);
 		print(all);
-		
-		//// ra -> rra
-		//if (b_result_index > all->stack_b->size / 2)
-		//	b_result_index = b_result_index - all->stack_b->size;
-
-		//if (a_result_index > all->stack_a->size / 2)
-		//	a_result_index = a_result_index - all->stack_a->size;
-
-		//if (a_result_index < 0 && b_result_index < 0)
-		//{
-		//	if (a_result_index > b_result_index)
-		//	{
-		//		while (b_result_index++ - a_result_index > 0)
-		//			rrb(all->stack_b);
-		//		while (a_result_index++ < 0)
-		//			rrr(all->stack_a, all->stack_b);
-		//	}
-		//	else
-		//	{
-		//		while (a_result_index++ - b_result_index > 0)
-		//			rra(all->stack_a);
-		//		while (b_result_index++ < 0)
-		//			rrr(all->stack_a, all->stack_b);
-		//	}
-		//}
-		//else if (a_result_index > 0 && b_result_index > 0)
-		//{
-		//	if (a_result_index > b_result_index)
-		//	{
-		//		while (a_result_index-- - b_result_index > 0)
-		//			rra(all->stack_a);
-		//		while (b_result_index-- > 0)
-		//			rrr(all->stack_a, all->stack_b);
-		//	}
-		//}
-		//else
-		//{
-		//	if (a_result_index < 0)
-		//		while (a_result_index++ < 0)
-		//			rra(all->stack_a);
-		//	else
-		//		while (a_result_index-- > 0)
-		//			ra(all->stack_a);
-		//	if (b_result_index < 0)
-		//		while (b_result_index++ < 0)
-		//			rrb(all->stack_b);
-		//	else
-		//		while (b_result_index-- > 0)
-		//			rb(all->stack_b);
-		//}
-	
 	}
 	while (all->stack_a->top->num != 0)
 		ra(all->stack_a);
@@ -187,42 +129,37 @@ void	push_to_b(t_all *all)
 
 long long	find_a(t_all *all, long long b_num)
 {
-	long long	a_index;
 	long long	result_index;
 	long long	min;
 	long long	diff;
 	t_node		*temp_a;
 
-	a_index = 0;
 	result_index = 0;
 	min = NUM_MAX;
 	temp_a = all->stack_a->top;
 	while (temp_a != NULL)
 	{
 		diff = temp_a->num - b_num;
-		if (diff > 0 && min > diff)
+		if (min > ft_abs(diff))
 		{
 			min = diff;
-			result_index = a_index;
+			result_index = temp_a->index;
 		}
 		temp_a = temp_a->next;
-		a_index++;
 	}
 	if (min == NUM_MAX && is_sorted(all) == 0)
 		result_index = find_a_with_biggest_b(all, b_num);
-	result_index = reverse_index(all, result_index);
+	result_index = greedy_index(all, result_index);
 	return (result_index);
 }
 
 long long	find_a_with_biggest_b(t_all *all, long long b_num)
 {
-	long long	a_index;
 	long long	result_index;
 	long long	min;
 	long long	diff;
 	t_node		*temp_a;
 
-	a_index = 0;
 	result_index = 0;
 	min = NUM_MAX;
 	temp_a = all->stack_a->top;
@@ -232,10 +169,9 @@ long long	find_a_with_biggest_b(t_all *all, long long b_num)
 		if (min > diff)
 		{
 			min = diff;
-			result_index = a_index;
+			result_index = temp_a->index;
 		}
 		temp_a = temp_a->next;
-		a_index++;
 	}
 	return (result_index);
 }
@@ -255,16 +191,38 @@ int	is_sorted(t_all *all)
 	return (1);
 }
 
-long long	reverse_index(t_all *all, long long result_index)
+long long	greedy_index(t_all *all, long long result_index)
 {
 	if (result_index > all->stack_a->size / 2)
 		result_index = (all->stack_a->size - result_index) * -1;
 	return (result_index);
 }
 
-long long	change_to_abs(long long num)
+long long	ft_abs(long long num)
 {
 	if (num < 0)
 		return (num * -1);
 	return (num);
+}
+
+void	put_index(t_all *all)
+{
+	t_node		*temp_a;
+	t_node		*temp_b;
+	long long	index;
+
+	temp_a = all->stack_a->top;
+	temp_b = all->stack_b->top;
+	index = 0;
+	while (temp_a != NULL)
+	{
+		temp_a->index = index++;
+		temp_a = temp_a->next;
+	}
+	index = 0;
+	while (temp_b != NULL)
+	{
+		temp_b->index = index++;
+		temp_b = temp_b->next;
+	}
 }
