@@ -6,11 +6,11 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:42:02 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/13 17:25:17 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/17 12:36:33 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	is_number(char *str)
 {

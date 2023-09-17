@@ -6,11 +6,11 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:44:22 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 22:15:51 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/17 12:40:27 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	indexing(t_all *all)
 {

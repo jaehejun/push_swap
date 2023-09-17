@@ -6,11 +6,11 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:23:03 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 22:16:23 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/17 12:36:13 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	pa(t_deque *deque_a, t_deque *deque_b)
 {

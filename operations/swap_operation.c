@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_opearation.c                                :+:      :+:    :+:   */
+/*   swap_operation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 19:22:57 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 22:16:42 by jaehejun         ###   ########.fr       */
+/*   Created: 2023/08/30 19:23:05 by jaehejun          #+#    #+#             */
+/*   Updated: 2023/09/17 12:36:28 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ra(t_deque *deque_a)
+void	sa(t_deque *deque_a)
 {
 	t_node	*temp;
 
@@ -20,13 +20,12 @@ void	ra(t_deque *deque_a)
 		return ;
 	temp = deque_a->top;
 	deque_a->top = deque_a->top->next;
-	deque_a->bottom->next = temp;
-	deque_a->bottom = temp;
-	temp->next = NULL;
-	write(1, "ra\n", 3);
+	temp->next = deque_a->top->next;
+	deque_a->top->next = temp;
+	write(1, "sa\n", 3);
 }
 
-void	rb(t_deque *deque_b)
+void	sb(t_deque *deque_b)
 {
 	t_node	*temp;
 
@@ -34,13 +33,12 @@ void	rb(t_deque *deque_b)
 		return ;
 	temp = deque_b->top;
 	deque_b->top = deque_b->top->next;
-	deque_b->bottom->next = temp;
-	deque_b->bottom = temp;
-	temp->next = NULL;
-	write(1, "rb\n", 3);
+	temp->next = deque_b->top->next;
+	deque_b->top->next = temp;
+	write(1, "sb\n", 3);
 }
 
-void	rr(t_deque *deque_a, t_deque *deque_b)
+void	ss(t_deque *deque_a, t_deque *deque_b)
 {
 	t_node	*temp;
 
@@ -48,13 +46,11 @@ void	rr(t_deque *deque_a, t_deque *deque_b)
 		return ;
 	temp = deque_a->top;
 	deque_a->top = deque_a->top->next;
-	deque_a->bottom->next = temp;
-	deque_a->bottom = temp;
-	temp->next = NULL;
+	temp->next = deque_a->top->next;
+	deque_a->top->next = temp;
 	temp = deque_b->top;
 	deque_b->top = deque_b->top->next;
-	deque_b->bottom->next = temp;
-	deque_b->bottom = temp;
-	temp->next = NULL;
-	write(1, "rr\n", 3);
+	temp->next = deque_b->top->next;
+	deque_b->top->next = temp;
+	write(1, "ss\n", 3);
 }

@@ -6,7 +6,7 @@
 #    By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/30 16:50:13 by jaehejun          #+#    #+#              #
-#    Updated: 2023/09/16 22:21:04 by jaehejun         ###   ########.fr        #
+#    Updated: 2023/09/17 12:40:55 by jaehejun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,17 @@ CC		= CC
 
 CFLAGS	= -Wall -Wextra -Werror -g
 
-SRCS	= main.c ft_split.c ft_atoi.c swap_operation.c push_operation.c\
-rotate_opearation.c reverse_rotate_operation.c make_stack.c indexing.c\
-sorting_small.c sorting_big.c
+SRCS	= main.c\
+./push_swap_utils/ft_split.c\
+./push_swap_utils/ft_atoi.c\
+./operations/swap_operation.c\
+./operations/push_operation.c\
+./operations/rotate_opearation.c\
+./operations/reverse_rotate_operation.c\
+./make_deque/make_deque.c\
+./make_deque/indexing.c\
+./sort_deque/sort_small.c\
+./sort_deque/sort_big.c\
 
 OBJS	= $(SRCS:.c=.o)
 

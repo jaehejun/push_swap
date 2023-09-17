@@ -6,11 +6,11 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 17:37:38 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/14 14:24:45 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/17 12:36:38 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 long long	count_single(const char *s, char c)
 {

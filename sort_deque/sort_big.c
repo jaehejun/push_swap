@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting_big.c                                      :+:      :+:    :+:   */
+/*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:52:32 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 22:26:54 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/17 12:54:46 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sort_big(t_all *all)
 {
-	long long	total_count;
+	long long	sum;
 	long long	greedy_a;
 	long long	a_count;
 	long long	b_count;
@@ -25,87 +25,92 @@ void	sort_big(t_all *all)
 	{
 		temp_b = all->deque_b->top;
 		put_index(all);
-		total_count = NUM_MAX;
+		sum = NUM_MAX;
 		while (temp_b != NULL)
 		{
 			greedy_a = find_a(all, temp_b->num);
-			if (total_count > ft_abs(greedy_a) + ft_abs(greedy_index(all->deque_b->size, temp_b->index)))
+			if (sum > ft_abs(greedy_a) + ft_abs(greedy_index(all->deque_b->size, temp_b->index)))
 			{
-				total_count = ft_abs(greedy_a) + ft_abs(greedy_index(all->deque_b->size, temp_b->index));
+				sum = ft_abs(greedy_a) + ft_abs(greedy_index(all->deque_b->size, temp_b->index));
 				b_count = greedy_index(all->deque_b->size, temp_b->index);
 				a_count = greedy_a;
 			}
 			temp_b = temp_b->next;
 		}
-
 		if (a_count >= 0 && b_count >= 0)
-		{
-			if (a_count > b_count)
-			{
-				while (b_count-- > 0)
-				{
-					rr(all->deque_a, all->deque_b);
-					a_count--;
-				}
-				while (a_count-- > 0)
-					ra(all->deque_a);
-			}
-			else
-			{
-				while (a_count-- > 0)
-				{
-					rr(all->deque_a, all->deque_b);
-					b_count--;
-				}
-				while (b_count-- > 0)
-					rb(all->deque_b);
-			}
-		}
+			greedy_r(all, a_count, b_count);
 		else if (a_count < 0 && b_count < 0)
-		{
-			if (a_count > b_count)
-			{
-				while (a_count++ < 0)
-				{
-					rrr(all->deque_a, all->deque_b);
-					b_count++;
-				}
-				while (b_count++ < 0)
-					rrb(all->deque_b);
-			}
-			else
-			{
-				while (b_count++ < 0)
-				{
-					rrr(all->deque_a, all->deque_b);
-					a_count++;
-				}
-				while (a_count++ < 0)
-					rra(all->deque_a);
-			}
-		}
+			greedy_rr(all, a_count, b_count);
 		else
-		{
-			if (a_count >= 0)
-				while (a_count-- > 0)
-					ra(all->deque_a);
-			else
-				while (a_count++ < 0)
-					rra(all->deque_a);
-			if (b_count >= 0)
-				while (b_count-- > 0)
-					rb(all->deque_b);
-			else
-				while (b_count++ < 0)
-					rrb(all->deque_b);
-		}
-
-		
+			greedy_seperately(all, a_count, b_count);
 		pa(all->deque_a, all->deque_b);
 	}
 	zero_to_top(all);
 }
-	
+
+void	greedy_r(t_all *all, long long a_count, long long b_count)
+{
+	if (a_count > b_count)
+	{
+		while (b_count-- > 0)
+		{
+			rr(all->deque_a, all->deque_b);
+			a_count--;
+		}
+		while (a_count-- > 0)
+			ra(all->deque_a);
+	}
+	else
+	{
+		while (a_count-- > 0)
+		{
+			rr(all->deque_a, all->deque_b);
+			b_count--;
+		}
+		while (b_count-- > 0)
+			rb(all->deque_b);
+	}
+}
+
+void	greedy_rr(t_all *all, long long a_count, long long b_count)
+{
+	if (a_count > b_count)
+	{
+		while (a_count++ < 0)
+		{
+			rrr(all->deque_a, all->deque_b);
+			b_count++;
+		}
+		while (b_count++ < 0)
+			rrb(all->deque_b);
+	}
+	else
+	{
+		while (b_count++ < 0)
+		{
+			rrr(all->deque_a, all->deque_b);
+			a_count++;
+		}
+		while (a_count++ < 0)
+			rra(all->deque_a);
+	}
+}
+
+void	greedy_seperately(t_all *all, long long a_count, long long b_count)
+{
+	if (a_count >= 0)
+		while (a_count-- > 0)
+			ra(all->deque_a);
+	else
+		while (a_count++ < 0)
+			rra(all->deque_a);
+	if (b_count >= 0)
+		while (b_count-- > 0)
+			rb(all->deque_b);
+	else
+		while (b_count++ < 0)
+			rrb(all->deque_b);
+}
 
 void	push_to_b(t_all *all)
 {
@@ -131,6 +136,7 @@ void	push_to_b(t_all *all)
 		pb(all->deque_a, all->deque_b);
 	sort_three(all);
 }
+
 long long	find_a(t_all *all, long long b_num)
 {
 	long long	result_index;
@@ -156,21 +162,6 @@ long long	find_a(t_all *all, long long b_num)
 	}
 	result_index = greedy_index(all->deque_a->size, result_index);
 	return (result_index);
-}
-
-int	is_sorted(t_all *all)
-{
-	t_node	*temp;
-
-	temp = all->deque_a->top;
-	while (temp->next != NULL)
-	{
-		if (temp->num < temp->next->num)
-			temp = temp->next;
-		else
-			return (0);
-	}
-	return (1);
 }
 
 long long	greedy_index(long long size, long long result_index)

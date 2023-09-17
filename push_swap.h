@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:11:47 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 22:16:28 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/17 12:49:27 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ typedef struct s_all
 	struct s_deque	*deque_b;
 }	t_all;
 
-void	print(t_all *all);
-
-
 int			is_number(char *str);
 long long	ft_atoi(char *str);
 
@@ -77,7 +74,6 @@ void		check_number(char *arr);
 void		check_dup(t_all *all, char *arr);
 void		free_allocated(t_all *all);
 
-
 void		indexing(t_all *all);
 void		quick_sort(long long *array, long long low, long long high);
 void		swap(long long *a, long long *b);
@@ -95,5 +91,8 @@ long long	greedy_index(long long size, long long result_index);
 long long	ft_abs(long long num);
 void		put_index(t_all *all);
 
+void		greedy_r(t_all *all, long long a_count, long long b_count);
+void		greedy_rr(t_all *all, long long a_count, long long b_count);
+void		greedy_seperately(t_all *all, long long a_count, long long b_count);
 
 #endif

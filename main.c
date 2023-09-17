@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:51:56 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/16 22:16:11 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/17 12:47:08 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,21 @@ int	main(int argc, char **argv)
 		sort_big(all);
 	free_allocated(all);
 	return (0);
+}
+
+int	is_sorted(t_all *all)
+{
+	t_node	*temp;
+
+	temp = all->deque_a->top;
+	while (temp->next != NULL)
+	{
+		if (temp->num < temp->next->num)
+			temp = temp->next;
+		else
+			return (0);
+	}
+	return (1);
 }
 
 void	free_allocated(t_all *all)
