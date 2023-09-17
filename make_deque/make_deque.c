@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 16:25:41 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/17 12:36:02 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/17 16:46:56 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,6 @@ void	init_deque(t_all *all)
 	all->deque_b->size = 0;
 	all->deque_b->top = NULL;
 	all->deque_b->bottom = NULL;
-}
-
-void	make_node(t_all *all, char *arr)
-{
-	t_node	*node;
-
-	check_number(arr);
-	check_dup(all, arr);
-	node = (t_node *)malloc(sizeof(t_node));
-	node->num = ft_atoi(arr);
-	node->next = NULL;
-	if (all->deque_a->top == NULL)
-		all->deque_a->top = node;
-	else
-		all->deque_a->bottom->next = node;
-	all->deque_a->bottom = node;
-	all->deque_a->size++;
 }
 
 void	make_deque(int argc, char**argv, t_all *all)
@@ -63,6 +46,23 @@ void	make_deque(int argc, char**argv, t_all *all)
 		}
 		free_all(arr, j);
 	}
+}
+
+void	make_node(t_all *all, char *arr)
+{
+	t_node	*node;
+
+	check_number(arr);
+	check_dup(all, arr);
+	node = (t_node *)malloc(sizeof(t_node));
+	node->num = ft_atoi(arr);
+	node->next = NULL;
+	if (all->deque_a->top == NULL)
+		all->deque_a->top = node;
+	else
+		all->deque_a->bottom->next = node;
+	all->deque_a->bottom = node;
+	all->deque_a->size++;
 }
 
 void	check_number(char *arr)

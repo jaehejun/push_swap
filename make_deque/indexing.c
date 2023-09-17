@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 18:44:22 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/17 12:40:27 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/17 16:48:45 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,6 @@ void	indexing(t_all *all)
 	quick_sort(index, 0, all->deque_a->size - 1);
 	numbering(index, all);
 	free(index);
-}
-
-void	numbering(long long *index, t_all *all)
-{
-	t_node	*temp;
-	int		i;
-
-	temp = all->deque_a->top;
-	while (temp != NULL)
-	{
-		i = 0;
-		while (i < all->deque_a->size)
-		{
-			if (temp->num == index[i])
-			{
-				temp->num = i;
-				temp = temp->next;
-				break ;
-			}
-			i++;
-		}
-	}
 }
 
 void	quick_sort(long long *array, long long low, long long high)
@@ -86,4 +64,26 @@ void	swap(long long *a, long long *b)
 	temp = *a;
 	*a = *b;
 	*b = temp;
+}
+
+void	numbering(long long *index, t_all *all)
+{
+	t_node	*temp;
+	int		i;
+
+	temp = all->deque_a->top;
+	while (temp != NULL)
+	{
+		i = 0;
+		while (i < all->deque_a->size)
+		{
+			if (temp->num == index[i])
+			{
+				temp->num = i;
+				temp = temp->next;
+				break ;
+			}
+			i++;
+		}
+	}
 }
