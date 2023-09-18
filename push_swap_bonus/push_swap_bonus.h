@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:20:36 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/17 17:22:19 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/18 21:11:14 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define INVALID 0
 # define NOT_NUM 2147483648
 # define OUT_OF_RANGE -2147483649
-# define NUM_MAX 4294967295
+# define BUFFER_SIZE 100
 
 typedef struct s_node
 {
@@ -50,7 +50,19 @@ char		*single(const char *s, char c);
 void		free_all(char **str, long long index);
 char		**ft_split(char const *s, char c);
 
+char		*free_memory(char *allocated1, char *allocated2);
+char		*make_line(char *temp_read);
+char		*make_remain(char *temp_read);
+char		*read_line(int fd, char *remain);
+char		*get_next_line(int fd);
+	
+size_t		ft_strlen(const char *s);
+char		*ft_strdup(const char *s1);
+char		*ft_strchr(const char *s, char c);
+char		*ft_strjoin(char const *s1, char const *s2);
+
 void		free_allocated(t_all *all);
+int			ft_strcmp(char *s1, char *s2);
 
 void		sa(t_deque *deque_a);
 void		sb(t_deque *deque_a);
@@ -73,29 +85,7 @@ void		make_node(t_all *all, char *arr);
 void		check_number(char *arr);
 void		check_dup(t_all *all, char *arr);
 
-//void		indexing(t_all *all);
-//void		quick_sort(long long *array, long long low, long long high);
-//void		swap(long long *a, long long *b);
-//void		numbering(long long *index, t_all *all);
-
-//void		sort_small(t_all *all);
-//void		push_min(t_all *all, int minimum);
-//void		sort_three(t_all *all);
-
-//void		sort_big(t_all *all);
-//void		push_to_b(t_all *all);
-//void		put_index(t_all *all);
-//long long	find_a(t_all *all, long long b_num);
-//void		zero_to_top(t_all *all);
-
-//long long	tr_idx(t_deque *deque, long long result_index);
-//long long	ft_abs(long long num);
 int			is_sorted(t_all *all);
-
-//void		operate_greedy(t_all *all, long long a_count, long long b_count);
-//void		greedy_r(t_all *all, long long a_count, long long b_count);
-//void		greedy_rr(t_all *all, long long a_count, long long b_count);
-//void		greedy_seperately(t_all *all, long long a_count, long long b_count);
+void		check_line(char *line, t_all *all);
 
 #endif
-

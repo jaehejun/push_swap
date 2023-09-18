@@ -1,60 +1,72 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_opearation_bonus.c                          :+:      :+:    :+:   */
+/*   reverse_rotate_operation_bonus.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 19:22:57 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/17 17:20:24 by jaehejun         ###   ########.fr       */
+/*   Created: 2023/08/30 19:22:53 by jaehejun          #+#    #+#             */
+/*   Updated: 2023/09/18 21:07:10 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	ra(t_deque *deque_a)
+void	rra(t_deque *deque_a)
 {
 	t_node	*temp;
+	int		i;
 
+	i = 0;
 	if (deque_a->size < 2)
 		return ;
-	temp = deque_a->top;
-	deque_a->top = deque_a->top->next;
-	deque_a->bottom->next = temp;
+	temp = deque_a->bottom;
+	temp->next = deque_a->top;
+	deque_a->top = temp;
+	while (i++ < deque_a->size - 1)
+		temp = temp->next;
 	deque_a->bottom = temp;
 	temp->next = NULL;
-	write(1, "ra\n", 3);
 }
 
-void	rb(t_deque *deque_b)
+void	rrb(t_deque *deque_b)
 {
 	t_node	*temp;
+	int		i;
 
+	i = 0;
 	if (deque_b->size < 2)
 		return ;
-	temp = deque_b->top;
-	deque_b->top = deque_b->top->next;
-	deque_b->bottom->next = temp;
+	temp = deque_b->bottom;
+	temp->next = deque_b->top;
+	deque_b->top = temp;
+	while (i++ < deque_b->size - 1)
+		temp = temp->next;
 	deque_b->bottom = temp;
 	temp->next = NULL;
-	write(1, "rb\n", 3);
 }
 
-void	rr(t_deque *deque_a, t_deque *deque_b)
+void	rrr(t_deque *deque_a, t_deque *deque_b)
 {
 	t_node	*temp;
+	int		i;
 
+	i = 0;
 	if (deque_a->size < 2 || deque_b->size < 2)
 		return ;
-	temp = deque_a->top;
-	deque_a->top = deque_a->top->next;
-	deque_a->bottom->next = temp;
+	temp = deque_a->bottom;
+	temp->next = deque_a->top;
+	deque_a->top = temp;
+	while (i++ < deque_a->size - 1)
+		temp = temp->next;
 	deque_a->bottom = temp;
 	temp->next = NULL;
-	temp = deque_b->top;
-	deque_b->top = deque_b->top->next;
-	deque_b->bottom->next = temp;
+	i = 0;
+	temp = deque_b->bottom;
+	temp->next = deque_b->top;
+	deque_b->top = temp;
+	while (i++ < deque_b->size - 1)
+		temp = temp->next;
 	deque_b->bottom = temp;
 	temp->next = NULL;
-	write(1, "rr\n", 3);
 }

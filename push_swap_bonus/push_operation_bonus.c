@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:23:03 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/17 17:20:16 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/18 21:06:59 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	pa(t_deque *deque_a, t_deque *deque_b)
 	deque_a->top = temp;
 	deque_a->size++;
 	deque_b->size--;
-	write(1, "pa\n", 3);
 }
 
 void	pb(t_deque *deque_a, t_deque *deque_b)
@@ -50,5 +49,4 @@ void	pb(t_deque *deque_a, t_deque *deque_b)
 	}
 	deque_a->size--;
 	deque_b->size++;
-	write(1, "pb\n", 3);
 }

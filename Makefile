@@ -6,13 +6,13 @@
 #    By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/30 16:50:13 by jaehejun          #+#    #+#              #
-#    Updated: 2023/09/17 17:30:47 by jaehejun         ###   ########.fr        #
+#    Updated: 2023/09/18 20:46:28 by jaehejun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= push_swap
 
-NAME_B	= checker
+NAME_BONUS	= checker
 
 CC		= CC
 
@@ -33,43 +33,40 @@ SRCS	= main.c\
 ./sort_deque/sort_big.c\
 ./sort_deque/greedy_operations.c\
 
-SRCS_B	= ./checker/main_bonus.c\
-./checker/get_next_line_bonus.c\
-./checker/get_next_line_utils_bonus.c\
-./checker/ft_split_bonus.c\
-./checker/ft_atoi_bonus.c\
-./checker/swap_operation_bonus.c\
-./checker/push_operation_bonus.c\
-./checker/rotate_opearation_bonus.c\
-./checker/reverse_rotate_operation_bonus.c\
-./checker/make_deque_bonus.c\
-./checker/checker_utils_bonus.c\
-./checker/free_deques_bonus.c\
-
+SRCS_BONUS	= ./push_swap_bonus/main_bonus.c\
+./push_swap_bonus/get_next_line_bonus.c\
+./push_swap_bonus/get_next_line_utils_bonus.c\
+./push_swap_bonus/ft_split_bonus.c\
+./push_swap_bonus/ft_atoi_bonus.c\
+./push_swap_bonus/swap_operation_bonus.c\
+./push_swap_bonus/push_operation_bonus.c\
+./push_swap_bonus/rotate_opearation_bonus.c\
+./push_swap_bonus/reverse_rotate_operation_bonus.c\
+./push_swap_bonus/make_deque_bonus.c\
+./push_swap_bonus/checker_utils_bonus.c\
 
 OBJS	= $(SRCS:.c=.o)
 
-OBJS_B	= $(SRCS_B:.c=.o)
+OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
 
 all		: $(NAME)
 
 $(NAME)	: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(NAME_B)	: $(OBJS_B)
-	$(CC) $(CFLAGS) $(OBJS_B) -o $(NAME_B)
+$(NAME_BONUS)	: $(OBJS_BONUS)
+	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $(NAME_BONUS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus	: all $(NAME_B)
-	$(CC) $(CFLAGS) $(OBJS_B) -o $(NAME_B)
+bonus	: $(NAME_BONUS)
 
 clean:
-	rm -f $(OBJS) $(OBJS_B)
+	rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	rm -f $(NAME) $(NAME_B)
+	rm -f $(NAME) $(NAME_BONUS)
 
 re:
 	make fclean
