@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:23:05 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/17 12:36:28 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/18 22:54:05 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,14 @@ void	ss(t_deque *deque_a, t_deque *deque_b)
 {
 	t_node	*temp;
 
-	if (deque_a->size < 2 || deque_b->size < 2)
+	if (deque_a->size < 2)
 		return ;
 	temp = deque_a->top;
 	deque_a->top = deque_a->top->next;
 	temp->next = deque_a->top->next;
 	deque_a->top->next = temp;
+	if (deque_b->size < 2)
+		return ;
 	temp = deque_b->top;
 	deque_b->top = deque_b->top->next;
 	temp->next = deque_b->top->next;

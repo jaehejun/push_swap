@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:22:53 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/17 12:36:19 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/18 22:55:06 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	rrr(t_deque *deque_a, t_deque *deque_b)
 	int		i;
 
 	i = 0;
-	if (deque_a->size < 2 || deque_b->size < 2)
+	if (deque_a->size < 2)
 		return ;
 	temp = deque_a->bottom;
 	temp->next = deque_a->top;
@@ -63,6 +63,8 @@ void	rrr(t_deque *deque_a, t_deque *deque_b)
 		temp = temp->next;
 	deque_a->bottom = temp;
 	temp->next = NULL;
+	if (deque_b->size < 2)
+		return ;
 	i = 0;
 	temp = deque_b->bottom;
 	temp->next = deque_b->top;

@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:20:36 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/18 21:11:14 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/18 23:06:23 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char		*make_line(char *temp_read);
 char		*make_remain(char *temp_read);
 char		*read_line(int fd, char *remain);
 char		*get_next_line(int fd);
-	
+
 size_t		ft_strlen(const char *s);
 char		*ft_strdup(const char *s1);
 char		*ft_strchr(const char *s, char c);
@@ -87,5 +87,6 @@ void		check_dup(t_all *all, char *arr);
 
 int			is_sorted(t_all *all);
 void		check_line(char *line, t_all *all);
+void		print_error(void);
 
 #endif

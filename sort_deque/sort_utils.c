@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 16:36:33 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/17 16:53:28 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/19 13:47:41 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	is_sorted(t_all *all)
 {
 	t_node	*temp;
 
+	if (all->deque_a->size == 0)
+		return (0);
 	temp = all->deque_a->top;
 	while (temp->next != NULL)
 	{

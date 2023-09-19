@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:31:51 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/18 20:58:46 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:29:39 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ void	free_allocated(t_all *all)
 	while (all->deque_a->size > 0)
 	{
 		temp = all->deque_a->top;
-		while (temp->next != all->deque_a->bottom && temp->next != NULL)
+		while (temp->next != NULL)
 			temp = temp->next;
-		free(all->deque_a->bottom);
-		all->deque_a->bottom = temp;
+		free(temp->next);
 		temp->next = NULL;
 		all->deque_a->size--;
 	}
@@ -36,7 +35,7 @@ int	ft_strcmp(char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while (s1[i] != '\n')
+	while (s1[i] != '\0')
 	{
 		if (s1[i] == s2[i])
 			i++;
@@ -50,6 +49,8 @@ int	is_sorted(t_all *all)
 {
 	t_node	*temp;
 
+	if (all->deque_a->size == 0)
+		return (0);
 	temp = all->deque_a->top;
 	while (temp->next != NULL)
 	{
@@ -60,4 +61,3 @@ int	is_sorted(t_all *all)
 	}
 	return (1);
 }
-

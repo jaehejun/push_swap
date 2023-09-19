@@ -6,7 +6,7 @@
 #    By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/30 16:50:13 by jaehejun          #+#    #+#              #
-#    Updated: 2023/09/18 20:46:28 by jaehejun         ###   ########.fr        #
+#    Updated: 2023/09/19 13:54:50 by jaehejun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME_BONUS	= checker
 
 CC		= CC
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -fsanitize=address -g
 
 SRCS	= main.c\
 ./push_swap_utils/ft_split.c\
