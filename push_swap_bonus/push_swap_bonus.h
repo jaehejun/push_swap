@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:20:36 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/18 23:06:23 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:57:23 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ void		rrr(t_deque *deque_a, t_deque *deque_b);
 void		init_deque(t_all *all);
 void		make_deque(int argc, char**argv, t_all *all);
 void		make_node(t_all *all, char *arr);
-void		check_number(char *arr);
-void		check_dup(t_all *all, char *arr);
+long long	check_number(char *arr);
+void		check_dup(t_all *all, long long number);
 
 int			is_sorted(t_all *all);
 void		check_line(char *line, t_all *all);

@@ -6,7 +6,7 @@
 /*   By: jaehejun <jaehejun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 16:25:41 by jaehejun          #+#    #+#             */
-/*   Updated: 2023/09/17 17:20:13 by jaehejun         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:57:39 by jaehejun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,13 @@ void	make_deque(int argc, char**argv, t_all *all)
 
 void	make_node(t_all *all, char *arr)
 {
-	t_node	*node;
+	t_node		*node;
+	long long	number;
 
-	check_number(arr);
-	check_dup(all, arr);
+	number = check_number(arr);
+	check_dup(all, number);
 	node = (t_node *)malloc(sizeof(t_node));
-	node->num = ft_atoi(arr);
+	node->num = number;
 	node->next = NULL;
 	if (all->deque_a->top == NULL)
 		all->deque_a->top = node;
@@ -65,23 +66,27 @@ void	make_node(t_all *all, char *arr)
 	all->deque_a->size++;
 }
 
-void	check_number(char *arr)
+long long	check_number(char *arr)
 {
-	if (ft_atoi(arr) == NOT_NUM || ft_atoi(arr) == OUT_OF_RANGE)
+	long long	result;
+
+	result = ft_atoi(arr);
+	if (result == NOT_NUM || result == OUT_OF_RANGE)
 	{
 		write(2, "Error\n", 6);
 		exit(1);
 	}
+	return (result);
 }
 
-void	check_dup(t_all *all, char *arr)
+void	check_dup(t_all *all, long long number)
 {
 	t_node	*temp;
 
 	temp = all->deque_a->top;
 	while (temp != NULL)
 	{
-		if (temp->num == ft_atoi(arr))
+		if (temp->num == number)
 		{
 			write(2, "Error\n", 6);
 			exit(1);
